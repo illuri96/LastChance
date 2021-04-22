@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
 import useStyles from './styles';
+import { Container } from '@material-ui/core';
 
 
 
@@ -17,31 +18,34 @@ const Navbar = (props) => {
 
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
-        <Typography component={Link} to="/" variant="h4" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
-          {title}
-        </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
-      </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar>
+      <Container >
+        <Toolbar className={classes.toolbar}>
+          <Typography component={Link} to="/" variant="h4" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
+            {title}
+          </Typography>
+          <IconButton>
+            <SearchIcon />
+          </IconButton>
+          <Button variant="outlined" size="small">
+            Sign up
+          </Button>
+        </Toolbar>
+        <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+          {sections.map((section) => (
+            <Link
+              color="inherit"
+              noWrap
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              className={classes.toolbarLink}
+            >
+              {section.title}
+            </Link>
+          ))}
+        </Toolbar>
+    </Container>
+
     </React.Fragment>
   );
 }
