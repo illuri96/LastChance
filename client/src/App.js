@@ -29,13 +29,13 @@ const App = () => {
         <CssBaseline />
         <BrowserRouter>
             <Container maxWidth="lg">
-              <Navbar sections ={sections}/>
+              <Navbar sections ={sections} title = "THE BLOG"/>
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/auth" exact component={Auth} />
               </Switch>
             </Container>
-          </BrowserRouter>
+        </BrowserRouter>
       </React.Fragment>
   );
 };
