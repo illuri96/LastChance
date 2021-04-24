@@ -87,22 +87,26 @@ Steps for MERN stack application :
 
 server : 
 
-	1. Create the index.js file. 
-	2. npm init -y to create the package.json.
-	3. Install cors, express, mongoose and nodemon with npm. 
-	4. create the 'type variable equals 'module'and change the start value to nodemon 		index.js.
-	5. connect to mongodb using mongoose.connect() in index.js and initialize cors and other necessary objects(app.use()) in the express. 
-	6. create Routes folder and creates posts file and create router from express.Router().
-	7. create controllers folder and add the backend functionality for the posts. 
+	1. Create the index file. 
+	2. npm init -y to create the package file which is in .json format.
+	3. Install the packages cors, express, mongoose and nodemon with npm. 
+	4. Declare the "type" equals 'module' in package file for using import syntax in ES6 and change the 'start' value to 'nodemon index.js' to avoid restarting server every time for the changes made.
+	5. Import express and call it as a method and call .json function which uses body-parser to send requests in json format to the middleware and .urlencoded to parse incoming requests with url encoded payloads and is also based on body-parser. 
+	6. Intialize cors which is the Cross-Origin Resource Sharing standard that works by adding new HTTP headers that let servers describe which origins are permitted to read that information from a web browser. 
+	7. connect to mongodb using mongoose.connect() in index file.
+	8. create models folder and create the respective schema of the collections to be used in mongo db using mongoose and  call it using mongoose.model. 
+	9. create Routes folder and declare routes for each of the requests made to the backend such as get, post, patch using express.router and pass the routes as arguments in .use function on express in index file.
+	10. create controllers folder and add the backend functionality for all the calls made to the backend using the request-response model. 
 	
 client : 
 
 	1. npx create-react-app ./ to create the basic structure of the react application. 
-	2. install axios, moment, react-file-base 64 redux and redux-thunk using npm. 
-	3. Create an index.js to call the app by id(ReactDOM.render()).
-	4. Create reusable 'components' folder in the src folder which has all the components in each separate folders and each component containing its own .js and styles. 
-	5. Create index.js in src/api folder to connect api's to posts.   
-	6. To use redux create two folders actions(posts.js) and reducers(index.js and posts.js) and add boiler plate code to index.js of the app. 
-	7. In posts.js(actions), create actioncreators such as getPosts and createPost with a dispatch object which is then retrieved by posts.js in reducers to return an action.
-	8. dispatch function is then used in app.js using useEffect by react.
-	9. In post in posts connect to redux using useSelector by react-redux. 
+	2. Install axios, moment, react-file-base 64 redux and redux-thunk using npm. 
+	3. The folder structure for all the components are created inside the src folder. 
+	4. Create an index.js file and render the app by using ReactDOM.render() and create a redux store and pass in as an argument to the provider component.
+	4. Create reusable 'components' folder in the src folder to implement the front-end using react, which has all the components in each separate folders and each component containing its own .js and styles. 
+	5. App.js is the parent component of the application and the child components are passed in with their respective props declared. 
+	6. Create index.js in src/api folder to implement the api calls to backend using axios which is an easy to use HTTP client.   
+	7. To use redux, create 'reducers' which can be implemented by using switch statements for each of the 'actions'. The reducers are arrow functions which take state and action as the arguments and returns an action.payload. 
+	8. Create 'action creators' which are async functions and dispatches (returns) a type and payload to be used by reducers.  
+	9. Create reusable components in react in 'components' folder using react & react-redux hooks which are used to effectively access the state of the component.  

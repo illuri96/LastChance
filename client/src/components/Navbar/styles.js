@@ -16,4 +16,7 @@ export default makeStyles((theme) => ({
       padding: theme.spacing(1),
       flexShrink: 0,
     },
+    userName: {
+      padding: theme.spacing(1),
+    }
   }));

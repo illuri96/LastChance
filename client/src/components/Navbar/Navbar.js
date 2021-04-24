@@ -2,19 +2,21 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-import { useHistory, useLocation } from 'react-router-dom';
-import { Typography, Toolbar, Avatar, Button, Container, Link } from '@material-ui/core';
+import { useHistory, useLocation, Link } from 'react-router-dom';
+import { Typography, Toolbar, Avatar, Button, Container } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
 
 import useStyles from './styles';
 import * as actionType from '../../constants/actionTypes';
+import Sections from '../Sections/sections'
+
 
 
 const Navbar = (props) => {
   const classes = useStyles();
-  const { sections, title } = props;
+  const { title } = props;
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
@@ -45,9 +47,9 @@ const Navbar = (props) => {
     <React.Fragment>
       <Container >
         <Toolbar className={classes.toolbar}>
-          <Link  href="/" variant="h5" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
-            {title}
-          </Link>
+          <Typography component={Link} to="/" className={classes.toolbarTitle} variant="h6" align="center">
+              {title}
+          </Typography>
           <IconButton>
             <SearchIcon />
           </IconButton>
@@ -58,18 +60,11 @@ const Navbar = (props) => {
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </Toolbar>
         ) : (
-          <Link href="/auth">
-              <Button  variant="contained" color="primary">Sign In</Button>
-          </Link>
+              <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
         )}
         </Toolbar>
-        <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-          {sections.map((section) => (
-            <Link color="inherit" noWrap key={section.title} variant="body2" href={section.url} className={classes.toolbarLink} >
-              {section.title}
-            </Link>
-          ))}
-        </Toolbar>
+        <Sections />
+        
     </Container>
 
     </React.Fragment>
@@ -77,7 +72,6 @@ const Navbar = (props) => {
 }
 
 Navbar.propTypes = {
-  sections: PropTypes.array,
   title: PropTypes.string,
 };
 
