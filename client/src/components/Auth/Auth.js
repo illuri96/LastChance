@@ -42,7 +42,7 @@ const SignUp = () => {
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
     const token = res?.tokenId;
-
+    
     try {
       dispatch({ type: AUTH, data: { result, token } });
 
@@ -79,7 +79,7 @@ const SignUp = () => {
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
           <GoogleLogin
-            clientId="119667928297-fqo6vtt3mj7n7atulm4gdg0qm08mnvdi.apps.googleusercontent.com"
+            clientId="776628159175-c9ri5asujmqfeumnfch4dpqeblqist70.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                 Google Sign In

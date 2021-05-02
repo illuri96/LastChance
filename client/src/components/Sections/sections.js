@@ -18,11 +18,13 @@ const Sections = () => {
         { title: 'Science', url: '#' },
         { title: 'Health', url: '#' },
         { title: 'Cinema', url: '#' },
-        { title: 'Travel', url: '#' },
+        { title: 'Travel', url: '/travel' },
+        { title: 'About', url: '/about' },
+
       ];
 
     return (
-        <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+        <Toolbar component="Sections" variant="dense" className={classes.toolbarSecondary}>
           {sections.map((section) => (
             <Link color="inherit" noWrap key={section.title} variant="body2" href={section.url} className={classes.toolbarLink}>
               {section.title}

@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
 
+
 import useStyles from './styles';
 import * as actionType from '../../constants/actionTypes';
 import Sections from '../Sections/sections'
@@ -45,7 +46,6 @@ const Navbar = (props) => {
 
   return (
     <React.Fragment>
-      <Container >
         <Toolbar className={classes.toolbar}>
           <Typography component={Link} to="/" className={classes.toolbarTitle} variant="h6" align="center">
               {title}
@@ -65,7 +65,6 @@ const Navbar = (props) => {
         </Toolbar>
         <Sections />
         
-    </Container>
 
     </React.Fragment>
   );

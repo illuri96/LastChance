@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
     toolbar: {
       borderBottom: `1px solid ${theme.palette.divider}`,
+      padding: theme.spacing(1),
+      
     },
     toolbarTitle: {
       flex: 1,
