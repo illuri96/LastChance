@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import { useHistory, useLocation, Link } from 'react-router-dom';
-import { Typography, Toolbar, Avatar, Button, Container } from '@material-ui/core';
+import { Typography, Toolbar, Avatar, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
@@ -47,7 +47,7 @@ const Navbar = (props) => {
   return (
     <React.Fragment>
         <Toolbar className={classes.toolbar}>
-          <Typography component={Link} to="/" className={classes.toolbarTitle} variant="h6" align="center">
+          <Typography component={Link} to="/" className={classes.toolbarTitle} variant="h4" align="center">
               {title}
           </Typography>
           <IconButton>

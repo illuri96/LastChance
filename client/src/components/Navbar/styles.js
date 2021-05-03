@@ -20,5 +20,5 @@ export default makeStyles((theme) => ({
     },
     userName: {
       padding: theme.spacing(1),
-    }
+    },
   }));
