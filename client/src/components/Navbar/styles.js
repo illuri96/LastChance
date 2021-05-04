@@ -21,4 +21,9 @@ export default makeStyles((theme) => ({
     userName: {
       padding: theme.spacing(1),
     },
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
+    
   }));

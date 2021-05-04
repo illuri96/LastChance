@@ -28,9 +28,22 @@ export default makeStyles((theme) => ({
   },
   listRoot: {
     width: '100%',
-    maxWidth: 500,
+    maxWidth: 550,
     backgroundColor: theme.palette.background.paper,
     marginRight: 0,
   },
+  image :{
+    marginTop : theme.spacing(1),
+    marginRight: theme.spacing(2),
+  },
+  education :{
+    padding : theme.spacing(1)
+
+  },
+  grid :{
+    marginTop : theme.spacing(2)
+  }
+  
+  
   
 }));

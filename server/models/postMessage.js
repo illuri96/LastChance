@@ -6,12 +6,15 @@ const postSchema = mongoose.Schema({
     name: String,
     creator: String,
     tags: [String],
-    selectedFile: String,
+    image: String,
     likes: { type: [String], default: [] },
     createdAt: {
         type: Date,
         default: new Date(),
     },
+    description: String,
+    linkText: String,
+    imgText: String, 
 })
 
 var PostMessage = mongoose.model('PostMessage', postSchema);

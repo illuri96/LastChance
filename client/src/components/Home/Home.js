@@ -1,38 +1,67 @@
-
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getPosts } from '../../actions/posts';
-import Posts from '../Posts/Posts';
-import Form from '../Form/Form';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+
+import MainFeaturedPost from './MainFeaturedPost';
+import FeaturedPost from './FeaturedPost';
+
 import useStyles from './styles';
 
 
 
-const Home = () => {
-  const [currentId, setCurrentId] = useState(0);
-  const dispatch = useDispatch();
-  const classes = useStyles();
+const mainFeaturedPost = {
+  title: 'Title of a longer featured blog post',
+  description:
+    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+  image: 'https://source.unsplash.com/random',
+  imgText: 'main image description',
+  linkText: 'Continue reading…',
+};
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
+const featuredPosts = [
+  {
+    title: 'Featured post',
+    date: 'Nov 12',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+];
+
+
+
+
+
+
+const Home = () => {
+
+ const classes = useStyles();
+
+
 
   return (
-    <Grow in>
-      <Container className = { classes.containerPrimary } maxWidth = "lg">
-        <Grid container justify="space-between" alignItems="stretch" spacing={3} >
-          <Grid item xs={12} sm={7}>
-            <Posts setCurrentId={setCurrentId} />
+    <React.Fragment>
+      <Container className = {classes.containerPrimary} maxWidth="lg">
+          <MainFeaturedPost post = {mainFeaturedPost}/>
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Form currentId={currentId} setCurrentId={setCurrentId} />
-          </Grid>
-        </Grid>
       </Container>
-    </Grow>
+    </React.Fragment>
   );
-};
+}
 
 export default Home;
