@@ -10,4 +10,7 @@ export default makeStyles ({
         height: '100%',
         position: 'relative',
       },
+      root: {
+        maxWidth: 345,
+      }
     }); 

@@ -1,19 +1,9 @@
 import axios from 'axios';
 
-const key = 'AIzaSyBUfrWbi7vXj4VdtJ8RQwGzzE-tXmuNolw';
-const playlist_id = 'PLRdtia2uhfV_Malt1N8bn-Jx64SJSYDhH';
+
 
 
 const API = axios.create({ baseURL: 'http://localhost:5000' });
-const YOUTUBE =  axios.create({ baseURL: 'https://www.googleapis.com/youtube/v3/playlists' ,
-                                  params : 
-                                  {
-                                   part : 'snippet',
-                                   key : key,
-                                   playlist_id: playlist_id,
-                                   maxResults : 50
-                                 }
-                              });
 
 
 API.interceptors.request.use((req) => {
@@ -37,7 +27,10 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
 
-//sections 
 
 
-export const fetchVideos = () => YOUTUBE.get('/videos');
+//sections
+
+export const fetchVideos = () => axios.get(URL);
+
+const URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=PLRdtia2uhfV_Malt1N8bn-Jx64SJSYDhH&key=AIzaSyBUfrWbi7vXj4VdtJ8RQwGzzE-tXmuNolw';

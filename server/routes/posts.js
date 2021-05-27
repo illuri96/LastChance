@@ -7,7 +7,7 @@ import { getPost, getPosts, createPost, updatePost, likePost, deletePost } from 
 const router = express.Router();
 
 router.get('/:id', auth, getPost);
-router.get('/', auth, getPosts);
+router.get('/', getPosts);
 router.post('/', auth,  createPost);
 router.patch('/:id', auth, updatePost);
 router.delete('/:id', auth, deletePost);

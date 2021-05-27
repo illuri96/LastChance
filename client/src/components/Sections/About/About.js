@@ -15,11 +15,7 @@ import Schools from './Schools';
 
 const About = () => {
   const classes = useStyles();
-  
-  
 
-
-  
 
   return (
         <Grid container justify="space-between" alignItems="stretch" spacing={3} >

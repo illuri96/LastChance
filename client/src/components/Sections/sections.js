@@ -3,18 +3,14 @@ import React from 'react';
 import { Toolbar, Link } from '@material-ui/core';
 
 import useStyles from './styles';
-import { withRouter } from 'react-router-dom';
 
-
-
-
-const Sections = (props) => {
+const Sections = () => {
 
     const classes = useStyles();
 
-    const sections = [
+    const fields = [
       { title: 'Technology', url: '/technology' },
-      { title: 'Culture', url: '/culture' },
+      { title: 'History', url: '/history' },
       { title: 'Business', url: '/business' },
       { title: 'Politics', url: '/politics' },
       { title: 'Opinion', url: '/opinion' },
@@ -26,22 +22,15 @@ const Sections = (props) => {
 
     ];
 
-    const { location } = props;
-
-   if (location.pathname.match(/about/)){
-    return null;
-  }
   return (
     <Toolbar component="Sections" variant="dense" className={classes.toolbarSecondary}>
-          {sections.map((section) => (
-            <Link color="inherit" noWrap key={section.title} variant="body2" href={section.url} className={classes.toolbarLink}>
-              {section.title}
+          {fields.map((field) => (
+            <Link color="inherit" noWrap key={field.title} variant="body2" href={field.url} className={classes.toolbarLink} >
+              {field.title}
             </Link>
           ))}
         </Toolbar>
 
   )
 }
-const Section = withRouter(Sections);
-
-export default Section; 
+export default Sections; 

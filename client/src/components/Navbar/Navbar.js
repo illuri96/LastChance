@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
 
-import Section from '../Sections/sections';
+import Sections from '../Sections/Sections';
 import Form from '../Form/Form';
 import useStyles from './styles';
 import * as actionType from '../../constants/actionTypes';
@@ -59,9 +59,7 @@ const Navbar = (props) => {
   return (
     <React.Fragment>
         <Toolbar className={classes.toolbar}>
-          <Typography component={Link} to="/" className={classes.toolbarTitle} variant="h4" align="center">
-              {title}
-          </Typography>
+          <Typography component={Link} to="/" className={classes.toolbarTitle} variant="h4" align="center"> {title} </Typography>
           <IconButton>
             <SearchIcon />
           </IconButton>
@@ -70,15 +68,17 @@ const Navbar = (props) => {
             <Avatar className={classes.purple} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
             <Typography className={classes.userName} variant="h8">{user?.result.name}</Typography>&nbsp;
             <Button classes = {classes.button} variant="outlined" color="primary" onClick={handleToggle}> Create Post </Button>
-            <Backdrop className={classes.backdrop} open={open} onClick= {handleClose}><Form currentId={currentId} setCurrentId={setCurrentId} /> </Backdrop>
-            <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+            <Backdrop className={classes.backdrop} open={open} onSubmit ={handleClose} onclick={handleClose} ><Form currentId={currentId} setCurrentId={setCurrentId} /> </Backdrop>
+            <Button variant="contained" className={classes.logout} color="secondary" onclick={logout}>Logout</Button>
           </Toolbar>
         ) : (
               <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
         )}
         
         </Toolbar> 
-        <Section/>      
+        <div>
+          <Sections />      
+        </div>
 
     </React.Fragment>
   );
