@@ -8,6 +8,7 @@ import useStyles from './styles';
 
 
 
+
 const Technology = () => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const Technology = () => {
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
+
+
 
   return (
     <Grow in >

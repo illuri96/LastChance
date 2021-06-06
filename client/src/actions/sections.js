@@ -1,16 +1,31 @@
-import { FETCH_ALL } from '../constants/actionTypes';
+import { FETCH_PLAYLISTS, FETCH_PLAYLISTITEMS } from '../constants/actionTypes';
+
 
 import * as API from '../api/index';
 
-
-
-export const getVideos = () => async (dispatch) => {
+export const getPlaylistItems = () => async (dispatch) => {
     try {
-      const { data } = await API.fetchVideos();   
+      const { data } = await API.fetchPlaylistItems();
 
-      dispatch({ type: FETCH_ALL, payload: data});
+      dispatch({type : FETCH_PLAYLISTITEMS, payload : data.items});
 
     } catch (error) {
       console.log(error.message);
     }
   };
+
+export const getPlaylists = () => async (dispatch) => {
+    try {
+      const { data } = await API.fetchPlaylists();
+      
+      dispatch({type : FETCH_PLAYLISTS, payload : data});
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+
+
+
+  

@@ -8,3 +8,8 @@ export const LIKE = 'LIKE';
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
 
+
+export const FETCH_PLAYLISTS  = 'FETCH_PLAYLISTS';
+
+
+export const FETCH_PLAYLISTITEMS = 'FETCH_PLAYLISTITEMS';

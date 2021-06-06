@@ -31,6 +31,9 @@ export const signUp = (formData) => API.post('/user/signup', formData);
 
 //sections
 
-export const fetchVideos = () => axios.get(URL);
+export const fetchPlaylistItems = () => axios.get(URL);
 
-const URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=PLRdtia2uhfV_Malt1N8bn-Jx64SJSYDhH&key=AIzaSyBUfrWbi7vXj4VdtJ8RQwGzzE-tXmuNolw';
+const URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=PLRdtia2uhfV-3T7iOHZ9sw_m8j4Thmj9m&key=AIzaSyBUfrWbi7vXj4VdtJ8RQwGzzE-tXmuNolw';
+
+export const fetchPlaylists = () => axios.get(YTURL);
+const YTURL = 'https://www.googleapis.com/youtube/v3/playlists?part=snippet&maxResults=25&channelId=UCtf80B9MV9m9gZmtO2o_AJw&key=AIzaSyBUfrWbi7vXj4VdtJ8RQwGzzE-tXmuNolw';

@@ -6,37 +6,38 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 
-import Videos from './Videos';
+import Videos from '../History/Videos';
 
 
 
 import useStyles from './styles';
-import axios from 'axios';
-import Videopost from './Videopost';
+
 import { getPlaylistItems, getPlaylists } from '../../../actions/sections';
 
 
 
-const History = () => {
+const Science = () => {
 
 
     const classes = useStyles();
     const dispatch = useDispatch();
 
+    const [playlistId, setplaylistId] = useSelector((state) => state.sections)
+
 
     useEffect(() => {  
       dispatch(getPlaylistItems());
-    }, []);
+    }, [playlistId, dispatch]);
 
 
 
     
       return (
         <Grid>
-          <Videos/>
+          <Videos setplaylistId={setplaylistId} />
         </Grid>
         
       )
   }
 
-export default History; 
+export default Science; 
